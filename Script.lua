@@ -16,7 +16,7 @@ OrionLib:MakeNotification({
 Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
-			
+		print(Value)	
         end
 })
 Tab:AddToggle({
