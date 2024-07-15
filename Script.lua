@@ -14,7 +14,7 @@ OrionLib:MakeNotification({
 Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
-      		print("button pressed")
+      	    loadstring(game:HttpGet("https://raw.githubusercontent.com/Mahmuttuncel/Asdd/main/AntiAFK.txt"))()
   	end    
 })
 Tab:AddToggle({
