@@ -13,14 +13,9 @@ OrionLib:MakeNotification({
 })
 Tab:AddButton({
 	Name = "Button!",
-	Callback = function(
-		First_Sea = false
-			
-      		local L_83_ = game.PlaceId
-	        if L_83_ == 2753915549 then
-		        First_Sea = true
-  	end)
- 
+	Callback = function()
+   		game:GetService('TeleportService'):Teleport(2753915549)
+end
 })
 Tab:AddToggle({
 	Name = "This is a toggle!",
