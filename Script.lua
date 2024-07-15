@@ -14,7 +14,11 @@ OrionLib:MakeNotification({
 Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
-      		print("button pressed")
+		First_Sea = false
+			
+      		local L_83_ = game.PlaceId
+	        if L_83_ == 2753915549 then
+		        First_Sea = true
   	end    
 })
 Tab:AddToggle({
