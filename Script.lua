@@ -16,8 +16,8 @@ OrionLib:MakeNotification({
 Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
-                game:GetService("Players").PlayerAdded:Connect(function(plr)
-                      tps:Teleport(placeid,plr)
+                game:GetService("Players").PlayerAdded:Connect(function()
+                      tps:Teleport(2753915549)
         end)
     end
 })
