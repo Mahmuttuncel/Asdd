@@ -1,360 +1,85 @@
-local OrionLib = loadstring(game:HttpGet(('https://[Log in to view URL]')))()
-local Window = OrionLib:MakeWindow({Name = "DeadlyHub", HidePremium = True, IntroEnabled = true,IntroText = "DeadlyHub",IntroIcon = nil, SaveConfig = true, ConfigFolder = "DeadlyHubRoblox"})
-
---MainTab
-local MainTab = Window:MakeTab({
-	Name = "Main",
-	Icon = nil,
-	PremiumOnly = false
+local Window = Rayfield:CreateWindow({
+   Name = "Michisad Hub",
+   LoadingTitle = "Loading",
+   LoadingSubtitle = "Access granted. Script made by Michisad",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "ISuckAtCoding"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
 })
 
-MainTab:AddButton({
-	Name = "ESP (Q to toggle on and off)",
-	Callback = function()
-      	loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
+local MainTab = Window:CreateTab("Home", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+   Title = "Thanks for using Michisad's HUB",
+   Content = "best GUI ever in the world!!!",
+   Duration = 5,
+   Image = nil,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Yes!!!", "ur wrong :(",
+         Callback = function()
+         print("The user tapped Yes!!!")
+      end
+   },
+},
 })
 
-MainTab:AddButton({
-	Name = "Fling",
-	Callback = function()
-	    loadstring(game:HttpGet(('https://[Log in to view URL]'),true))()
-  	end    
-})
+local Button = MainTab:CreateButton({
+   Name = "",
+   Callback = function()
+               --Toggles the infinite jump between on or off on every script run
+_G.infinjump = not _G.infinjump
 
+if _G.infinJumpStarted == nil then
+    --Ensures this only runs once to save resources
+    _G.infinJumpStarted = true
 
+    --Notifies readiness
+    game.StarterGui.SetCore("SendNotification", {Title="Youtube Hub"; Text="Infinite Jump Activated!"; Duration=5;})
 
-MainTab:AddButton({
-	Name = "Noclip",
-	Callback = function()
-      		local player = game.Players.LocalPlayer
-local mouse = player:GetMouse()
-local runservice = game:GetService("RunService")
-local noclip = false
-
-local msg = Instance.new("Message", player.PlayerGui)
-msg.Text = "Noclip Script! Press on 'e' to noclip & 't' to destroy this message!"
-
-runservice.Stepped:Connect(function()
-    if noclip then
-        player.Character.Humanoid:ChangeState(11)
+    --The actual infinite jump
+    local plr = game:GetService('Players').LocalPlayer
+    local m = plr:GetMouse()
+    m.KeyDown:connect(function(k)
+        if _G.infinjump then
+            if k:byte() == 32 then
+            humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+            humanoid:ChangeState('Jumping')
+            wait()
+            humanoid:ChangeState('Seated')
+            end
+        end
     end
-end)
-
-mouse.KeyDown:Connect(function(key)
-    if key == "t" then
-        msg:Destroy()
-    end
-end)
-
-mouse.KeyDown:Connect(function(key)
-    if key == "e" then
-	    noclip = true
-	    player.Character.Humanoid:ChangeState(11)
-    end
-end)
-  	end    
-})
-
-
-
-MainTab:AddButton({
-	Name = "Fly",
-	Callback = function()
-      		--Mobile Fly Script
-        loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
-  	end    
-})
-
-MainTab:AddButton({
-	Name = "Btools",
-	Callback = function()
-      	    loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-MainTab:AddButton({
-	Name = "X-ray (Press E to active/disable)",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-MainTab:AddButton({
-	Name = "FullBright",
-	Callback = function()
-      		game:GetService("Lighting").Brightness = 2
-            game:GetService("Lighting").ClockTime = 14
-            game:GetService("Lighting").FogEnd = 100000
-            game:GetService("Lighting").GlobalShadows = false
-            game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
-  	end    
-})
-
-
-
-MainTab:AddButton({
-	Name = "Infinite Jump",
-	Callback = function()
-      		 loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-MainTab:AddButton({
-	Name = "AirSwim",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-
-
-
-
---GamesTab
-local Games = Window:MakeTab({
-	Name = "Games🎮",
-	Icon = nil,
-	PremiumOnly = false
-})
-
-
-Games:AddButton({
-	Name = "🏠Brookhaven🏠",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-
-Games:AddButton({
-	Name = "🔪MM2🔪",
-	Callback = function()
-      	loadstring(game:HttpGet(('https://[Log in to view URL]'),true))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Flee The Facility",
-	Callback = function()
-      	loadstring(game:HttpGet("https://[Log in to view URL],true))()	
-  	end    
-})
-
-Games:AddButton({
-	Name = "Bedwars🛌",
-	Callback = function()
-      	loadstring(game:HttpGet("https://[Log in to view URL]", true))()	
-  	end    
-})
-
-Games:AddButton({
-	Name = "🔫Big Paintball🔫",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]
-  	end    
-})
-
-Games:AddButton({
-	Name = "Combat Warriors",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Blox Fruits",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]
-  	end    
-})
-
-Games:AddButton({
-	Name = "Prison Life",
-	Callback = function()
-      		loadstring(game:HttpGet('https://[Log in to view URL]'))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "⚡Legends of Speed⚡",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]", true))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "💪Muscle Legends💪",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Break In",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Nico's Nextbots",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]", true))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Doors👁",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Evade",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Rainbow Friends",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Slap Battles",
-	Callback = function()
-      		loadstring(game:HttpGet(('https://[Log in to view URL]')))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "Pop it trading",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]", true))()
-  	end    
-})
-
-Games:AddButton({
-	Name = "JailBreak",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]", true))()
-  	end    
-})
-
-
-
---Admins
-local Admins = Window:MakeTab({
-	Name = "Admins",
-	Icon = nil,
-	PremiumOnly = false
-})
-
-Admins:AddButton({
-	Name = "Infinite Yield",
-	Callback = function()
-      		loadstring(game:HttpGet('https://[Log in to view URL]'))()
-  	end    
-})
-
-Admins:AddButton({
-	Name = "CMD-X",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]", true))()
-  	end    
-})
-
-
-
-
-
-Admins:AddButton({
-	Name = "Fates Admin",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]"))()
-  	end    
-})
-
-
-
---Misc
-local Misc = Window:MakeTab({
-	Name = "Misc",
-	Icon = nil,
-	PremiumOnly = false
-})
-
-Misc:AddButton({
-	Name = "Keyboard",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]", true))()
-  	end    
-})
-
-Misc:AddButton({
-	Name = "FE Animations GUI",
-	Callback = function()
-      		loadstring(game:HttpGet("https://[Log in to view URL]", true))()
-  	end    
-})
-
-Misc:AddButton({
-	Name = "Free Emotes",
-	Callback = function()
-	        loadstring(game:HttpGet("https://[Log in to view URL]
-  	end    
-})
-
-Misc:AddButton({
-	Name = "Rejoin",
-	Callback = function()
-      		local ts = game:GetService("TeleportService")
-
-local p = game:GetService("Players").LocalPlayer
-
- 
-
-ts:Teleport(game.PlaceId, p)
-  	end    
-})
-
-Misc:AddButton({
-	Name = "",
-	Callback = function()
-      		
-  	end    
-})
-
-
-
-
-
---Credits
-local Credits = Window:MakeTab({
-	Name = "Credits",
-	Icon = nil,
-	PremiumOnly = false
-})
-
-
-
-Credits:AddLabel("Made by Deadly_Frenzy_")
-Credits:AddLabel("Sub to Deadly_Frenzy_ on YouTube")
-Credits:AddLabel("Follow deadly_frenzy_ on TikTok")
-Credits:AddLabel("Deadly_Frenzy_ Roblox Account: F0X42512")
-Credits:AddLabel("")
-Credits:AddLabel("imgood_atnameing_things helped me")
-Credits:AddLabel("Follow imgood_atnameing_things on TikTok")
-Credits:AddLabel("imgood_atnameing_things Roblox Account: duckarmy609")
-
-
-
-
-
-
 end
-OrionLib:Init()
+   end,
+})
+
+    local Slider = MainTab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {0, 250},
+   Increment = 5,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (value)
+   end,
+})
