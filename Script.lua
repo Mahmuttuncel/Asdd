@@ -11,13 +11,6 @@ OrionLib:MakeNotification({
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
-Misc:AddButton({
-	Name = "FirstSEA",
-	Callback = function()
-        local L_83_ = game.PlaceId
-	if L_83_ == 2753915549
-       end
-})
 Tab:AddToggle({
 	Name = "This is a toggle!",
 	Default = false,
