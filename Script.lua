@@ -1,74 +1,55 @@
-local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+local library = loadstring(game:HttpGet("https://github.com/GoHamza/AppleLibrary/blob/main/main.lua?raw=true"))()
 
-local win = DiscordLib:Window("discord library")
 
-local serv = win:Server("Preview", "")
+local window = library:init("Titlebar", true, Enum.KeyCode.RightShift, true)
 
-local btns = serv:Channel("Buttons")
+window:Divider("I'm a divider!")
 
-btns:Button("Kill all", function()
-DiscordLib:Notification("Notification", "Killed everyone!", "Okay!")
+local sectionA = window:Section("Test Elements")
+
+sectionA:Divider("I'm another divider!")
+
+sectionA:Button("Click me!", function()
+   print("Button clicked.")
 end)
 
-btns:Seperator()
+sectionA:Label("Lorem ipsum dolor sit amet.")
 
-btns:Button("Get max level", function()
-DiscordLib:Notification("Notification", "Max level!", "Okay!")
+sectionA:Switch("Switch me!", false, function(a)
+   print(a)
 end)
 
-local tgls = serv:Channel("Toggles")
-
-tgls:Toggle("Auto-Farm",false, function(bool)
-print(bool)
+sectionA:TextField("Enter text here!", "Enter text here...", function(a)
+   print(a)
 end)
 
-local sldrs = serv:Channel("Sliders")
+window:Divider("Just dividin'")
 
-local sldr = sldrs:Slider("Slide me!", 0, 1000, 400, function(t)
-print(t)
+local sectionB = window:Section("Test Notifications")
+
+sectionB:Divider("Dividers are cool!")
+
+sectionB:Button("Temporary Notification", function()
+   window:TempNotify("Be careful!", "We are going to beat you up.", "rbxassetid://12608259004")
 end)
 
-sldrs:Button("Change to 50", function()
-sldr:Change(50)
+sectionB:Button("Notification 1", function() window:Notify("Hello!", "I am notification", "Button1", "rbxassetid://12608259004",
+   function()
+       print(1)
+   end)
 end)
 
-local drops = serv:Channel("Dropdowns")
-
-
-local drop = drops:Dropdown("Pick me!",{"Option 1","Option 2","Option 3","Option 4","Option 5"}, function(bool)
-print(bool)
+sectionB:Button("Notification 2", function() window:Notify2("Hello!", "I am notification", "Button 1", "Button 2", "rbxassetid://12608259004",
+   function()
+       print(1)
+   end,
+   function()
+       print(2)
+   end)
 end)
 
-drops:Button("Clear", function()
-drop:Clear()
+window:GreenButton(function()
+   print("You clicked the green button!")
 end)
 
-drops:Button("Add option", function()
-drop:Add("Option")
-end)
-
-local clrs = serv:Channel("Colorpickers")
-
-clrs:Colorpicker("ESP Color", Color3.fromRGB(255,1,1), function(t)
-print(t)
-end)
-
-local textbs = serv:Channel("Textboxes")
-
-textbs:Textbox("Gun power", "Type here!", true, function(t)
-print(t)
-end)
-
-local lbls = serv:Channel("Labels")
-
-lbls:Label("This is just a label.")
-
-local bnds = serv:Channel("Binds")
-
-bnds:Bind("Kill bind", Enum.KeyCode.RightShift, function()
-print("Killed everyone!")
-end)
-
-serv:Channel("by 4242&4")
-
-win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
+sectionA:Select()
