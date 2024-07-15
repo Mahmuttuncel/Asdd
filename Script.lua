@@ -16,12 +16,8 @@ OrionLib:MakeNotification({
 Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
-local ts = game:GetService("TeleportService")
-
-local p = game:GetService("Players").LocalPlayer
-
-ts:Teleport(game.2753915549, p)
-    end
+			
+        end
 })
 Tab:AddToggle({
 	Name = "This is a toggle!",
