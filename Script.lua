@@ -14,8 +14,8 @@ OrionLib:MakeNotification({
 Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
-		print(Value)	
-        end
+      		print("button pressed")
+  	end    
 })
 Tab:AddToggle({
 	Name = "This is a toggle!",
@@ -82,15 +82,3 @@ Tab:AddDropdown({
 --Dropdown:Set("dropdown option")
 OrionLib:Init()
 -- destroying the interface: OrionLib:Destroy()
-
-
-	local L_82_ = game.PlaceId
-	if L_82_ == 2753915549 then
-		First_Sea = true;
-	elseif L_82_ == 4442272183 then
-		Second_Sea = true;
-	elseif L_82_ == 7449423635 then
-		Third_Sea = true;
-	else
-		game:Shutdown()
-	end;
