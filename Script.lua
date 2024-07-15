@@ -15,7 +15,7 @@ Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
    		game:GetService('TeleportService'):Teleport(2753915549)
-end
+        end
 })
 Tab:AddToggle({
 	Name = "This is a toggle!",
