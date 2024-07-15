@@ -12,9 +12,9 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 Tab:AddButton({
-	Name = "AntiAfk",
+	Name = "AntıAfk",
 	Callback = function()
-        loadstring(game:HttpGet"https://raw.githubusercontent.com/Mahmuttuncel/Asdd/main/AntiAFK.txt"))()
+	    loadstring(game:HttpGet"https://raw.githubusercontent.com/Mahmuttuncel/Asdd/main/AntiAFK.txt"))()
   	end     
 })
 Tab:AddToggle({
