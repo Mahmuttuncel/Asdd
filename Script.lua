@@ -1,28 +1,32 @@
-local Flux = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/fluxlib.txt")()
+local library = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ShaddowScripts/Main/main/Library"))()
 
-local win = Flux:Window("PREVIEW", "Baseplate", Color3.fromRGB(255, 110, 48), Enum.KeyCode.LeftControl)
-local tab = win:Tab("Tab 1", "http://www.roblox.com/asset/?id=6023426915")
-tab:Button("Kill all", "This function may not work sometimes and you can get banned.", function()
-Flux:Notification("Killed all players successfully!", "Alright")
+local Main = library:CreateWindow("Main","Crimson")
+
+local tab = Main:CreateTab("Cheats")
+local tab2 = Main:CreateTab("Misc")
+
+tab:CreateButton("Hi",function()
+print("clicked")
 end)
-tab:Label("This is just a label.")
-tab:Line()
-tab:Toggle("Auto-Farm Coins", "Automatically collects coins for you!", function(t)
-print(t)
+
+tab:CreateToggle("Farm",function(a)
+print(a)
 end)
-tab:Slider("Walkspeed", "Makes your faster.", 0, 100,16,function(t)
-print(t)
+
+tab:CreateSlider("Wow",1,16,function(a)
+print(a)
 end)
-tab:Dropdown("Part to aim at", {"Torso","Head","Penis"}, function(t)
-print(t)
+
+tab:CreateCheckbox("Aimbot",function(a)
+print(a)
 end)
-tab:Colorpicker("ESP Color", Color3.fromRGB(255,1,1), function(t)
-print(t)
+
+tab:CreateDropdown("Word",{"Sung","Jin","Woo"},function(a)
+print(a)
 end)
-tab:Textbox("Gun Power", "This textbox changes your gun power, so you can kill everyone faster and easier.", true, function(t)
-print(t)
+
+tab2:CreateButton("Hello",function()
+print("clicked")
 end)
-tab:Bind("Kill Bind", Enum.KeyCode.Q, function()
-print("Killed a random person!")
-end)
-win:Tab("Tab 2", "http://www.roblox.com/asset/?id=6022668888")
+
+tab:Show()
