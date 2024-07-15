@@ -1,4 +1,3 @@
-
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "WrongHUB / Demon Blade", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Misc = Window:MakeTab({
