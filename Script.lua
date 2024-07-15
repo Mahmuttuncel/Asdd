@@ -1,13 +1,13 @@
 local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RedzLibV5/main/Source.Lua"))()
 
 local Window = redzlib:MakeWindow({
-  Title = "WrongHUB: Blox Fruits",
-  SubTitle = "by Wrongzy_",
-  SaveFolder = "Config"
+  Title = "redz Hub : Blox Fruits",
+  SubTitle = "by redz9999",
+  SaveFolder = "testando | redz lib v5.lua"
 })
-local Tab1 = Window:MakeTab({"Um", "Main"})
-local Tab2 = Window:MakeTab({"Dois", "Tp"})
-local Tab3 = Window:MakeTab({"Três", "Misc"})
+local Tab1 = Window:MakeTab({"Um", "cherry"})
+local Tab2 = Window:MakeTab({"Dois", "swords"})
+local Tab3 = Window:MakeTab({"Três", "user"})
 
 Tab1:AddButton({"Dark Theme", function()
   redzlib:SetTheme("Dark")
