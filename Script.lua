@@ -1,5 +1,7 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local tps = game:GetService("TeleportService")
+local placeid = 2753915549 -- change it to your game id
 local Tab = Window:MakeTab({
 	Name = "Tab 1",
 	Icon = "rbxassetid://4483345998",
@@ -14,8 +16,10 @@ OrionLib:MakeNotification({
 Tab:AddButton({
 	Name = "Button!",
 	Callback = function()
-   		game:GetService('TeleportService'):Teleport(2753915549)
-        end
+                game:GetService("Players").PlayerAdded:Connect(function(plr)
+                      tps:Teleport(placeid,plr)
+        end)
+    end
 })
 Tab:AddToggle({
 	Name = "This is a toggle!",
