@@ -10,6 +10,8 @@
 			if L_119_forvar1:IsA("LocalScript") then
 				if L_119_forvar1.Name == "RobloxMotor6DBugFix" or L_119_forvar1.Name == "Clans" or L_119_forvar1.Name == "Codes" or L_119_forvar1.Name == "CustomForceField" or L_119_forvar1.Name == "MenuBloodSp" or L_119_forvar1.Name == "PlayerList" then
 					L_119_forvar1:Destroy()
+                                game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "AntiAfk Enable",
+
 				end
 			end
 		end
